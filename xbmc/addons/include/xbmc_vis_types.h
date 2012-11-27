@@ -24,17 +24,22 @@
 
 #ifndef __VISUALISATION_TYPES_H__
 #define __VISUALISATION_TYPES_H__
-#include <cstddef>
 
+#ifdef __cplusplus
+#include <cstddef>
+#endif
+
+#ifdef __cplusplus
 extern "C"
 {
-  struct VIS_INFO
+#endif
+  typedef struct VIS_INFO
   {
     int bWantsFreq;
     int iSyncDelay;
-  };
+  } VIS_INFO;
 
-  struct VIS_PROPS
+  typedef struct VIS_PROPS
   {
     void *device;
     int x;
@@ -46,9 +51,9 @@ extern "C"
     const char *presets;
     const char *profile;
     const char *submodule;
-  };
+  } VIS_PROPS;
 
-  enum VIS_ACTION
+  typedef enum VIS_ACTION
   { 
     VIS_ACTION_NONE = 0,
     VIS_ACTION_NEXT_PRESET,
@@ -60,8 +65,9 @@ extern "C"
     VIS_ACTION_RATE_PRESET_MINUS,
     VIS_ACTION_UPDATE_ALBUMART,
     VIS_ACTION_UPDATE_TRACK
-  };
+  } VIS_ACTION;
 
+#ifdef __cplusplus
   class VisTrack
   {
   public:
@@ -92,8 +98,9 @@ extern "C"
     int        reserved3;
     int        reserved4;
   };
+#endif
 
-  struct Visualisation
+  typedef struct Visualisation
   {
     void (__cdecl* Start)(int iChannels, int iSamplesPerSec, int iBitsPerSample, const char* szSongName);
     void (__cdecl* AudioData)(const float* pAudioData, int iAudioDataLength, float *pFreqData, int iFreqDataLength);
@@ -105,7 +112,9 @@ extern "C"
     unsigned int (__cdecl *GetPreset)();
     unsigned int (__cdecl *GetSubModules)(char ***modules);
     bool (__cdecl* IsLocked)();
-  };
+  } Visualisation;
+#ifdef __cplusplus
 }
+#endif
 
 #endif //__VISUALISATION_TYPES_H__
