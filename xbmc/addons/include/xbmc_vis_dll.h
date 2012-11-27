@@ -24,10 +24,8 @@
 #include "xbmc_addon_dll.h"
 #include "xbmc_vis_types.h"
 
-#ifdef __cplusplus
 extern "C"
 {
-#endif
   // Functions that your visualisation must implement
   void Start(int iChannels, int iSamplesPerSec, int iBitsPerSample, const char* szSongName);
   void AudioData(const float* pAudioData, int iAudioDataLength, float *pFreqData, int iFreqDataLength);
@@ -52,8 +50,6 @@ extern "C"
     pVisz->GetSubModules = GetSubModules;
     pVisz->IsLocked = IsLocked;
   };
-#ifdef __cplusplus
 };
-#endif
 
 #endif

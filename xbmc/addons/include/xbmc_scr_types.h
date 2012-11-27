@@ -22,16 +22,14 @@
 #ifndef __SCREENSAVER_TYPES_H__
 #define __SCREENSAVER_TYPES_H__
 
-#ifdef __cplusplus
 extern "C"
 {
-#endif
-  typedef struct SCR_INFO
+  struct SCR_INFO
   {
     int dummy;
-  } SCR_INFO;
+  };
 
-  typedef struct SCR_PROPS
+  struct SCR_PROPS
   {
     void *device;
     int x;
@@ -42,16 +40,14 @@ extern "C"
     const char *name;
     const char *presets;
     const char *profile;
-  } SCR_PROPS;
+  };
 
-  typedef struct ScreenSaver
+  struct ScreenSaver
   {
     void (__cdecl* Start) ();
     void (__cdecl* Render) ();
     void (__cdecl* GetInfo)(SCR_INFO *info);
-  } ScreenSaver;
-#ifdef __cplusplus
-};
-#endif
+  };
+}
 
 #endif // __SCREENSAVER_TYPES_H__

@@ -25,10 +25,8 @@
 #include "xbmc_addon_dll.h"
 #include "xbmc_scr_types.h"
 
-#ifdef __cplusplus
 extern "C"
 {
-#endif
 
   // Functions that your visualisation must implement
   void Start();
@@ -42,8 +40,6 @@ extern "C"
     pScr->Render = Render;
     pScr->GetInfo = GetInfo;
   };
-#ifdef __cplusplus
 };
-#endif
 
 #endif
